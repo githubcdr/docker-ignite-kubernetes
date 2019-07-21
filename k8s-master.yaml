@@ -2,7 +2,7 @@ apiVersion: ignite.weave.works/v1alpha1
 kind: VM
 metadata:
   name: k8s-master
-  uid: "1234"
+  uid: "1234123412341234"
 spec:
   image:
     ociClaim:
