@@ -10,5 +10,5 @@ spec:
   cpus: 2
   diskSize: 16GB
   memory: 4GB
- status:
-   state: Created
+status:
+  state: Created
