@@ -15,4 +15,4 @@ spec:
     ociClaim:
       ref: cdrocker/ignite-kubernetes
 status:
-  state: Created
+  state: Running
