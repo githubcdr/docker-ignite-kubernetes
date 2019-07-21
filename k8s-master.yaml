@@ -2,13 +2,17 @@ apiVersion: ignite.weave.works/v1alpha1
 kind: VM
 metadata:
   name: k8s-master
-  uid: "1234123412341235"
+  uid: 1234123412341235
 spec:
-  image:
-    ociClaim:
-      ref: cdrocker/ignite-kubernetes
   cpus: 2
   diskSize: 16GB
   memory: 4GB
+  ssh: true
+  kernel:
+    ociClaim:
+      ref: weaveworks/ignite-kernel:4.19.47
+  image:
+    ociClaim:
+      ref: cdrocker/ignite-kubernetes
 status:
   state: Created
