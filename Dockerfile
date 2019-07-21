@@ -3,7 +3,7 @@ FROM ubuntu:bionic
 # meta
 LABEL \
 	org.label-schema.maintainer="me codar nl" \
-	org.label-schema.name="backup-tools" \
+	org.label-schema.name="ignite-kubernetes" \
 	org.label-schema.description="Don't ask, inception overfl0w" \
 	org.label-schema.version="1.0" \
 	org.label-schema.vcs-url="https://github.com/githubcdr/docker-ignite-kubernetes" \
@@ -26,7 +26,7 @@ RUN apt-get update && apt-get install -y \
       udev \
       vim-tiny \
       wget \
-	  docker.io && \
+      docker.io && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
