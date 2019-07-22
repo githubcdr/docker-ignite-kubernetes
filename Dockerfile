@@ -1,4 +1,4 @@
-FROM ubuntu:bionic
+FROM ubuntu:xenial
 
 # meta
 LABEL \
@@ -13,21 +13,27 @@ LABEL \
 # kmod is needed for modprobing modules
 # systemd is needed for running as PID 1 as /sbin/init
 # Also, other utilities are installed
-RUN apt-get update && apt-get install -y \
-      curl \
-      dbus \
-      kmod \
-      iproute2 \
-      iputils-ping \
-      net-tools \
-      openssh-server \
-      sudo \
-      systemd \
-      udev \
-      vim-tiny \
-      wget \
-      docker.io && \
-    apt-get clean && \
+RUN apt update && apt install -y curl gnupg && \
+    echo "deb http://apt.kubernetes.io/ kubernetes-xenial main" > /etc/apt/sources.list.d/kubernetes.list && \
+    curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add && \
+    apt update && install -y \
+    dbus \
+    kmod \
+    iproute2 \
+    iputils-ping \
+    net-tools \
+    openssh-server \
+    sudo \
+    systemd \
+    udev \
+    vim-tiny \
+    wget \
+    docker.io \
+    kubernetes-cni \
+    kubectl \
+    kubeadm \
+    kubelet && \
+    apt clean && \
     rm -rf /var/lib/apt/lists/*
 
 # Create the following files, but unset them
